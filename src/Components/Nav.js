@@ -2,39 +2,81 @@ import React, { Component } from 'react';
 import "./Nav.css";
 
 class Nav extends Component {
-    render() {
-        return (
-          <div className="nav-container">
-          
-            <nav>
+  render() {
+    return (
+
+      <div className="img-nav-container">
+        <img id="hero-img" src="../images/5.jpg" />
+
+
+
+<div className="card-panel z-depth-0 center-align" id="slogan">
+        <span className="white-text" id="slogan-text">When employees are happy, your organization succeeds
+        </span>
+        <br />
+        <br />
+        <a href="" className="btn-flat center-align" id="getStarted">Get Started</a>
+      </div>
+
+
+
+
+        <nav className="nav-master z-depth-0">
+          <div className="navbar-fixed">
+
+            <a className="navbar-brand" href="#">
+              <img src="../images/acumen-white.png" />
+            </a>
+            <div id="nav-buttons">
+
+              <a href="" class="btn-flat" id="nav1">Platform</a>
+
+              <a href="" class="btn-flat" id="nav2">Product</a>
+
+              <a href="" class="btn-flat" id="nav3">Company</a>
+
+              <a href="" class="btn-flat" id="nav4">Contact</a>
+
               
-    <div className="nav-wrapper">
-    
-    <a className="navbar-brand" href="#">
-          <img src="../images/acumen2.png" />
-        </a>
-        <div id="nav-buttons">
+          
+           
 
-<a href="" class="waves-effect waves-teal btn-flat" id="nav1">Platform</a>
+            <div id="login-buttons">
+            
+            <a href="" class="btn-flat" id="loginBtn">Log In</a>
 
-<a href="" class="waves-effect waves-teal btn-flat" id="nav2">Product</a>
-
-<a href="" class="waves-effect waves-teal btn-flat" id="nav3">Company</a>
-
-<a href="#modal1" class="waves-effect waves-teal btn-flat" id="nav4">Login</a>
-
-</div>
-    </div>
-    
-  </nav>
-
-  </div>
-  
-
-        )
+<a href="" class="btn-flat" id="signUpBtn">Sign Up</a>
+            </div>
+          </div>
+          </div>
+        </nav>
 
 
-    }
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    )
+
+
+  }
 
 
 
