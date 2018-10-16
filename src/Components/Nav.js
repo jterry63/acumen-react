@@ -5,7 +5,7 @@ class Nav extends Component {
   state = {
     backgroundColor: "transparent",
     imgSrc: "../images/acumen-white.png",
-    color: "white",
+    color: "",
     border: "1px solid white"
   };
 
@@ -15,7 +15,7 @@ class Nav extends Component {
 
   handleScroll = e => {
     if (window.scrollY > 10) {
-      this.setState({ backgroundColor: "#474747" });
+      this.setState({ backgroundColor: "rgba(71,71,71,.9)" });
     } else {
       this.setState({
         backgroundColor: "transparent",
@@ -29,7 +29,7 @@ class Nav extends Component {
   render() {
     return (
       <div className="img-nav-container">
-        <img id="hero-img" src="../images/5.jpg" />
+        <img id="hero-img" src="../images/hero.png" />
 
         <div className="card-panel z-depth-0 center-align" id="slogan">
           <span className="white-text" id="slogan-text">
@@ -98,6 +98,7 @@ class Nav extends Component {
                   class="btn-flat"
                   id="signUpBtn"
                   style={{ color: this.state.color, border: this.state.border }}
+                  
                 >
                   Sign Up
                 </a>
