@@ -1,4 +1,48 @@
-#footer-img {
-    width: 100%;
-    height: auto;
+.page-footer {
+    background-color: #474747;
 }
+
+.fa-2x {
+    color: white;
+}
+
+.fa-2x:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+#footer-logo {
+    height: 38px;
+    width: 48px;
+}
+
+.container {
+    position: relative;
+}
+
+h6 {
+    color: silver;
+}
+
+.footer-link {
+    color: silver;
+}
+
+#helpBtn {
+    color: white;
+    background: linear-gradient(to right, #5433ff, #20bdff);
+    border-radius: 15px;
+    padding: 0 45px;
+}
+
+#helpBtn:hover {
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+#arrow-icon {
+    font-size: small;
+}
+
