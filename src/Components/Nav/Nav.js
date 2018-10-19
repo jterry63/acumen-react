@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./Nav.css";
 
+import Body from '../Body/Body'
+
 class Nav extends Component {
   state = {
     backgroundColor: "transparent",
@@ -106,6 +108,12 @@ class Nav extends Component {
             </div>
           </div>
         </nav>
+
+
+<Body />
+
+
+
       </div>
     );
   }

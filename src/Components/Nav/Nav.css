@@ -87,7 +87,7 @@
 
   #slogan {
     position: absolute;
-    top: 30%;
+    top: 15%;
     left: 10%;
     height: 300px;
     width: 500px;
@@ -118,3 +118,4 @@
     font-size: 35px;
     text-align: center;
   }
+

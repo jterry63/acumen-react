@@ -12,8 +12,8 @@ class App extends Component {
     return (
 <div className="component-app">
       <Nav />
-     <Cards />
-     <Analytics />
+     {/* <Cards />
+     <Analytics /> */}
      <Footer />
       </div>
 
