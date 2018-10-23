@@ -11,12 +11,12 @@ class Body extends Component {
 
     
 <div>
-        <div className="container">
+        <div className="card-container center-block">
         <h4 className="center">The exmployee experience platform <br />that helps you understand your people <br /> and your organization</h4>
         <div className="section" id="about">
           <div className="row">
             <div className="col s12 m4">
-            <div className="card z-depth-0">
+            <div className="cards">
             <div class="card-content">
               <div className="icon-block">
                 <h2 className="center light-blue-text"><i className="material-icons" style={{color: 'darkcyan', fontSize: 40}}>group</i></h2>
@@ -30,7 +30,7 @@ class Body extends Component {
               </div>
             </div>
             <div className="col s12 m4 ">
-            <div className="card z-depth-0">
+            <div className="cards">
             <div class="card-content">
               <div className="icon-block ">
                 <h2 className="center light-blue-text "><i className="material-icons " style={{color: 'darkcyan', fontSize: 40}}>data_usage</i></h2>
@@ -43,7 +43,7 @@ class Body extends Component {
               </div>
             </div>
             <div className="col s12 m4 ">
-            <div className="card z-depth-0">
+            <div className="cards">
             <div class="card-content">
               <div className="icon-block ">
                 <h2 className="center light-blue-text "><i className="material-icons " style={{color: 'darkcyan', fontSize: 40}}>feedback</i></h2>

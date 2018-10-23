@@ -1,26 +1,24 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 
-import Nav from './Components/Nav/Nav'
-import Cards from './Components/Cards/Cards'
-import Analytics from './Components/Analytics/Analytics'
-import Footer from './Components/Footer/Footer'
 
-class App extends Component {
-  render() {
-    return (
-<div className="component-app">
-      <Nav />
-     {/* <Cards />
-     <Analytics /> */}
-     <Footer />
-      </div>
+import Home from './Pages/Home/Home';
+import Survey from './Pages/Survey/Survey';
+import Test from './Pages/Test/Test';
 
-
-    );
-
-  }
-}
+const App = () => (
+  <Router>
+    <div>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/survey" component={Survey} />
+        <Route exact path="/test" component={Test} />
+        
+      
+      </Switch>
+    </div>
+  </Router>
+);
 
 export default App;

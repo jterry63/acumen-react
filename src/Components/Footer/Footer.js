@@ -1,13 +1,16 @@
 import React, { Component } from "react";
-import './Footer.css';
-
+import './Footer.css'
 
 class Footer extends Component {
     render() {
         return (
-<div>
-     
-        <footer className="page-footer">
+            <div className="subscription-section" style={{  backgroundImage: "url(" + "../images/subscribe.png" + ")",
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'noRepeat',}}>
+           
+    
+           <footer className="page-footer">
             <div className="container">
           
               <div className="row">
@@ -81,7 +84,10 @@ class Footer extends Component {
               </div>
             </div>
           </footer>
-          </div>
+                
+                  </div>
+
+
         );
       }
     }

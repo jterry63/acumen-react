@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Nav.css";
 
-import Body from '../Body/Body'
 
 class Nav extends Component {
   state = {
@@ -30,19 +29,7 @@ class Nav extends Component {
 
   render() {
     return (
-      <div className="img-nav-container">
-        <img id="hero-img" src="../images/hero.png" />
-
-        <div className="card-panel z-depth-0 center-align" id="slogan">
-          <span className="white-text" id="slogan-text">
-            When employees are happy, your organization succeeds
-          </span>
-          <br />
-          <br />
-          <a href="" className="btn-flat center-align" id="getStarted">
-            Get Started
-          </a>
-        </div>
+   <div>
 
         <nav
           className="nav-master z-depth-0"
@@ -110,7 +97,6 @@ class Nav extends Component {
         </nav>
 
 
-<Body />
 
 
 
