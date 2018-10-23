@@ -1,27 +1,100 @@
 import React, { Component } from "react";
 import "./Data.css";
+import Range from '../../Components/Range/Range';
+import { ProgressBar } from "mx-react-components";
+import { TextArea } from "mx-react-components";
+import { Button } from "mx-react-components";
+import { MessageBox } from "mx-react-components";
 
-import Nav from '../../Components/Nav/Nav'
 
 
 
 class Data extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      rangeVal: 3,
+      backgroundColor: "white",
+      imgSrc: "../images/acumen2.png",
+      color: "darkcyan",
+      border: "1px solid white",
+      width: "10%",
+      percentage: 50,
+      visibility: "hidden"
+    }
+    this.updateRange = this.updateRange.bind(this);
+  }
+  
+  updateRange(val) {
+    this.setState({
+      rangeVal: val
+    })
+  } 
+
+
+  componentDidMount = () => {
+    window.addEventListener("scroll", this.handleScroll);
+  };
+
+  handleScroll = e => {
+    if (window.scrollY > 10) {
+      this.setState({ backgroundColor: "rgba(71,71,71,.9)",
+        imgSrc: "../images/acumen-white.png",
+        color: "white"
+    
+    });
+      
+    } else {
+      this.setState({
+        backgroundColor: "white",
+        imgSrc: "../images/acumen2.png",
+        color: "darkcyan",
+        border: "1px solid white"
+      });
+    }
+  };
+
+  handleMessageClick = () => {
+    this.setState({ visibility: "visible",
+  
+});
+
+  }
 
   render() {
+    const { rangeVal } = this.state;
     return (
         <div>
-          <Nav />
+               <nav
+          className="nav-master-survey" style={{ backgroundColor: this.state.backgroundColor }}>
+          <div className="navbar-fixed">
+            <a className="navbar-brand" href="#">
+            <img src={this.state.imgSrc} />
+            </a>
+            
+            <div className="container" id="progressBar">
+        <p className="center" id="progressText" style={{ color: this.state.color }}>Progress 0/8</p>
+        <ProgressBar
+          baseColor='#ACB0B3'
+          percentage={this.state.percentage}
+          progressColor="#529aca"
+          styles={{ component: { width: '100%' } }}
+        />
+      </div>
+            </div>
+         
+        </nav>
     
         {/*Survey Header*/}
         <div className="section" id="surveyHeader">
           <br /><br />
-          <h2 className="center" id="helloHeader">Hello.</h2>
+          <h2 className="center light" style={{ color: "white" }} id="helloHeader">Hello.</h2>
           <div className="row">
             <div className="col s3 m3" />
             <div className="col s6 m6">
               <div className="center">
-                <h4 className="center" id="surveyIntro"> Welcome to the Acumen Pulse for August. Please take a minute to
+                <h4 className="center light" id="surveyIntro" style={{ color: "white" }}> Welcome to the Acumen Pulse for August. Please take a minute to
                   answer the questions below. Your participation will help us get a real pulse on life at Example Inc.
                   So, thanks for taking part.
                 </h4>
@@ -34,7 +107,7 @@ class Data extends Component {
             <div className="col s4 m4">
               <div className="center">
                 {/* Dropdown Trigger */}
-                <a className="dropdown-trigger" data-target="dropdown1">English <i className="material-icons" style={{fontSize: 12}}>keyboard_arrow_down</i>
+                <a className="dropdown-trigger light" data-target="dropdown1" style={{ color: "white" }}>English <i className="material-icons" style={{fontSize: 12}}>keyboard_arrow_down</i>
                 </a>
                 {/* Dropdown Structure */}
                 <ul id="dropdown1" className="dropdown-content">
@@ -45,7 +118,7 @@ class Data extends Component {
             <div className="col s4 m4" />
           </div>
           <br />
-          <p className="center" id="surveyWarning">Your responses are confidential and reported to managers and Example Inc
+          <p className="center light" id="surveyWarning" style={{ color: "white" }}>Your responses are confidential and reported to managers and Example Inc
             <br /> in aggregate groups. For more information view the: Data Protection Summary.<br /> Take care not to identify
             yourself in the comments.</p>
           <br />
@@ -60,9 +133,10 @@ class Data extends Component {
           <div className="col s4 m4" />
         </div>
         {/*Question 1 Start*/}
+        
         <div className="section" id="question_one">
-          <h2 className="center" style={{color: 'black', fontWeight: 'bolder'}}>01.</h2>
-          <h4 className="center" style={{fontWeight: 'bold'}}>How happy are you working at Example Inc?
+          <h2 className="center light">01.</h2>
+          <h4 className="center light">How happy are you working at Example Inc?
           </h4>
           <br /><br />
           <div className="row">
@@ -70,24 +144,20 @@ class Data extends Component {
             <div className="col s6 m6">
               <div className="row" id="surveyTags">
                 <div className="col s3 m3">
-                  <div className="left-align">
-                    <p style={{fontFamily: '"graphik"'}}>Not at all</p>
+                  <div className="left-align light">
+                    <p>Not at all</p>
                   </div>
                 </div>
                 <div className="col s6 m6" />
                 <div className="col s3 m3">
-                  <div className="right-align">
-                    <p style={{fontFamily: '"graphik"'}}>Completely happy</p>
+                  <div className="right-align light">
+                    <p>Completely happy</p>
                   </div>
                 </div>
               </div>
               {/*Range Slider*/}
               <div className="center">
-                <form action="#">
-                  <p className="range-field">
-                    <input type="range" id="test1" min={1} max={5} name="value" />
-                  </p>
-                </form>
+              <Range range={rangeVal} updateRange={this.updateRange}/>
                 {/* <form class="center" id="test1">
 
                         <div class="col s1 m1">
@@ -147,12 +217,16 @@ class Data extends Component {
           <div className="col s3 m3" />
           <div className="col s6 m6">
             <div className="input-field" id="comment1">
-              <textarea id="textarea1" className="materialize-textarea" style={{padding: 10}} defaultValue={""} />
-              <label htmlFor="textarea1" style={{textIndent: 10, fontFamily: '"proxima nova"'}}>Please free to add your comments
-                here
-              </label>
-              <a className="waves-effect waves-light btn right" id="save1" style={{marginLeft: 10, backgroundColor: 'whitesmoke', color: 'grey'}}>Save</a>
-              <a className="waves-effect waves-light btn right" id="skip1" style={{backgroundColor: 'whitesmoke', color: 'grey'}}>Skip</a>
+            <TextArea
+          elementProps={{
+            placeholder: 'Comment'
+          }}
+          rows={5}
+          valid={true}
+        />
+        <br />
+              <Button className="right" id="save1" aria-label='Submit Form' elementProps={{ 'data-my-attribute': 'my attribute data here' }} theme={{ Colors: { PRIMARY: '#333333' } }} type='secondary'>Save</Button>
+              <Button className="right" id="skip1" aria-label='Submit Form' elementProps={{ 'data-my-attribute': 'my attribute data here' }} theme={{ Colors: { PRIMARY: '#333333' } }} type='secondary'>Skip</Button>
             </div>
           </div>
         </div>
@@ -161,12 +235,18 @@ class Data extends Component {
           <br /><br /><br /><br />
           {/*Question 1 End*/}
           {/*Question Hint 1 Start*/}
+          <div id="message-box" style={{ visibility: this.state.visibility }}>
+          <MessageBox
+          icon='attention-solid'
+          title='This is a MessageBox title with no message, only a title.'
+        />
+        </div>
           <div className="section" id="question_hint1">
             <div className="row">
               <div className="col s4 m4" />
               <div className="col s4 m4">
                 <div className="center">
-                  <i className="material-icons center" onclick="M.toast({html: 'This question is required', classes: 'rounded', displayLength: '1000'})" id="dropDownHint">keyboard_arrow_down</i>
+                  <i className="material-icons center" onClick={this.handleMessageClick} id="dropDownHint">keyboard_arrow_down</i>
                 </div>
               </div>
               <div className="col s4 m4" />
@@ -193,11 +273,7 @@ class Data extends Component {
                 <br />
                 {/*Range Slider*/}
                 <div className="center">
-                  <form action="#">
-                    <p className="range-field">
-                      <input type="range" id="test2" min={1} max={5} />
-                    </p>
-                  </form>
+                <Range range={rangeVal} updateRange={this.updateRange}/>
                 </div>
                 {/*Comment Field*/}
                 <div className="input-field" id="comment2">
