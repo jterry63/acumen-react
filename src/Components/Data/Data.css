@@ -4,7 +4,6 @@
    
 }
 
-
 #progressBar {
     width: 15%;
     float: right;
@@ -70,8 +69,8 @@
   #dropDownHint {
   margin-top: -15px;
 }
-  #question_hint1 {
-    background-color: silver;
+  #question_hint1, #question_hint2, #question_hint3, #question_hint4, #question_hint5, #question_hint6, #question_hint7 {
+    background-color: whitesmoke;
   }
   
   /* #question_hint2, #question_hint3, #question_hint4, #question_hint5, #question_hint6, #question_hint7 {
