@@ -5,6 +5,7 @@ import { ProgressBar } from "mx-react-components";
 import { TextArea } from "mx-react-components";
 import { Button } from "mx-react-components";
 import { MessageBox } from "mx-react-components";
+import { Styles } from "mx-react-components";
 
 
 
@@ -56,11 +57,20 @@ class Data extends Component {
   };
 
   handleMessageClick = () => {
-    this.setState({ visibility: "visible",
-  
+    this.setState({ visibility: "visible"
+    
 });
 
   }
+
+  hideMessage = () => {
+    this.setState({ visibility: "hidden"
+    
+});
+
+  }
+
+
 
   render() {
     const { rangeVal } = this.state;
@@ -134,7 +144,7 @@ class Data extends Component {
         </div>
         {/*Question 1 Start*/}
         
-        <div className="section" id="question_one">
+        <div className="section" id="question_one" onClick={this.hideMessage}>
           <h2 className="center light">01.</h2>
           <h4 className="center light">How happy are you working at Example Inc?
           </h4>
@@ -156,7 +166,7 @@ class Data extends Component {
                 </div>
               </div>
               {/*Range Slider*/}
-              <div className="center">
+              <div className="center" onClick={this.hideMessage}>
               <Range range={rangeVal} updateRange={this.updateRange}/>
                 {/* <form class="center" id="test1">
 
@@ -216,7 +226,7 @@ class Data extends Component {
         <div className="row">
           <div className="col s3 m3" />
           <div className="col s6 m6">
-            <div className="input-field" id="comment1">
+            <div className="input-field" id="comment1" onClick={this.hideMessage}>
             <TextArea
           elementProps={{
             placeholder: 'Comment'
@@ -225,8 +235,8 @@ class Data extends Component {
           valid={true}
         />
         <br />
-              <Button className="right" id="save1" aria-label='Submit Form' elementProps={{ 'data-my-attribute': 'my attribute data here' }} theme={{ Colors: { PRIMARY: '#333333' } }} type='secondary'>Save</Button>
-              <Button className="right" id="skip1" aria-label='Submit Form' elementProps={{ 'data-my-attribute': 'my attribute data here' }} theme={{ Colors: { PRIMARY: '#333333' } }} type='secondary'>Skip</Button>
+              <Button className="right" id="save1" aria-label='Submit Form' elementProps={{ 'data-my-attribute': 'my attribute data here' }} theme={{ Colors: { PRIMARY: '#333333' } }} type='secondary' onClick={this.hideMessage}>Save</Button>
+              <Button className="right" id="skip1" aria-label='Submit Form' elementProps={{ 'data-my-attribute': 'my attribute data here' }} theme={{ Colors: { PRIMARY: '#333333' } }} type='secondary' onClick={this.hideMessage}>Skip</Button>
             </div>
           </div>
         </div>
@@ -235,10 +245,11 @@ class Data extends Component {
           <br /><br /><br /><br />
           {/*Question 1 End*/}
           {/*Question Hint 1 Start*/}
-          <div id="message-box" style={{ visibility: this.state.visibility }}>
+          <div className="center-block" id="message-box" style={{ visibility: this.state.visibility }} onClick={this.hideMessage}>
           <MessageBox
           icon='attention-solid'
-          title='This is a MessageBox title with no message, only a title.'
+          title='This question is required.'
+          color={Styles.Colors.PRIMARY}
         />
         </div>
           <div className="section" id="question_hint1">

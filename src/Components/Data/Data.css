@@ -121,6 +121,10 @@
       border-bottom-color: white;
       border-left-color: white;
     }
+
+    #message-box {
+      width: 30%;
+    }
     
     /* CHROME */
     #range {
