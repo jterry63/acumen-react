@@ -27,6 +27,7 @@ class Data extends Component {
       percentage: 0,
       progress: "Progress 0/8",
       visibility: "hidden",
+      display: "none",
       commentOne: '',
       commentTwo: '',
       commentThree: '',
@@ -34,7 +35,7 @@ class Data extends Component {
       commentFive: '',
       commentSix: '',
       commentSeven: '',
-      commentEight: '',
+      commentEight: ''
     }
     this.updateRangeOne = this.updateRangeOne.bind(this);
     this.updateRangeTwo = this.updateRangeTwo.bind(this);
@@ -128,7 +129,8 @@ class Data extends Component {
    
       this.setState({
         progress: "Progress 1/8",
-        percentage: 12.5
+        percentage: 12.5, 
+        display: "block"
 
       })
       console.log(this.state.rangeValOne);
@@ -249,7 +251,7 @@ onInputChangeEight(commentEight) {
     const { rangeValSix } = this.state;
     const { rangeValSeven } = this.state;
     return (
-        <div>
+        <div style={{ backgroundColor: "whitesmoke" }}>
                <nav
           className="nav-master-survey" style={{ backgroundColor: this.state.backgroundColor }}>
           <div className="navbar-fixed">
@@ -318,7 +320,7 @@ onInputChangeEight(commentEight) {
         </div>
         {/*Question 1 Start*/}
         
-        <div className="section" id="question_one" onClick={this.hideMessage}>
+        <div className="card-container center-block" id="question_one" style={{ backgroundColor: "white" }} onClick={this.hideMessage}>
           <h2 className="center light">01.</h2>
           <h4 className="center light">How happy are you working at Example Inc?
           </h4>
@@ -347,7 +349,7 @@ onInputChangeEight(commentEight) {
               <div className="col s3 m3" />
             </div>
           </div>
-        </div>
+        
         {/*Comment Field*/}
         <div className="row">
           <div className="col s3 m3" />
@@ -367,7 +369,8 @@ onInputChangeEight(commentEight) {
             </div>
           </div>
         </div>
-        <div className="col s3 m3" />
+        </div>
+       
         <div>
           <br /><br /><br /><br />
           {/*Question 1 End*/}
@@ -392,7 +395,7 @@ onInputChangeEight(commentEight) {
           </div>
           {/*Question Hint 1 End*/}
           {/*Question 2 Start*/}
-          <div className="section" id="question_two">
+          <div className="section" id="question_two" style={{ display: this.state.display }}>
         
             <h2 className="center light">02.</h2>
             <h4 className="center light">I frequently receive recognition for my work.
@@ -421,7 +424,7 @@ onInputChangeEight(commentEight) {
                 <div className="col s3 m3" />
             </div>
           </div>
-        </div>
+        
                 {/*Comment Field*/}
                 <div className="row">
           <div className="col s3 m3" />
@@ -441,8 +444,9 @@ onInputChangeEight(commentEight) {
             </div>
           </div>
         </div>
-        <div className="col s3 m3" />
-        <div>
+        
+        
+        
           <br /><br /><br /><br />
           
           {/*Question 2 End*/}
@@ -455,7 +459,8 @@ onInputChangeEight(commentEight) {
         />
         </div>
         </div>
-          <div className="section" id="question_hint1">
+
+          <div className="section" id="question_hint1" style={{ display: this.state.display }}>
             <div className="row">
               <div className="col s4 m4" />
               <div className="col s4 m4">
@@ -468,7 +473,7 @@ onInputChangeEight(commentEight) {
           </div>
           {/*Question Hint 2 End*/}
           {/*Question 3 Start*/}
-          <div className="section" id="question_three">
+          <div className="section" id="question_three" style={{ display: this.state.display }}>
            
             <h2 className="center light">03.</h2>
             <h4 className="center light">I have the resources I need to do my job well.
@@ -497,7 +502,7 @@ onInputChangeEight(commentEight) {
                 <div className="col s3 m3" />
             </div>
           </div>
-        </div>
+        
                 {/*Comment Field*/}
                 <div className="row">
           <div className="col s3 m3" />
@@ -517,10 +522,11 @@ onInputChangeEight(commentEight) {
             </div>
           </div>
         </div>
-        <div className="col s3 m3" />
-        <div>
+        
+        
+       
           <br /><br /><br /><br />
-         </div>
+        
           {/*Question 3 End*/}
           {/*Question Hint 4 Start*/}
           <div className="center-block" id="message-box" style={{ visibility: this.state.visibility }} onClick={this.hideMessage}>
@@ -530,8 +536,9 @@ onInputChangeEight(commentEight) {
           color={Styles.Colors.PRIMARY}
         />
         </div>
+        </div>
         
-          <div className="section" id="question_hint1">
+          <div className="section" id="question_hint1" style={{ display: this.state.display }}>
             <div className="row">
               <div className="col s4 m4" />
               <div className="col s4 m4">
@@ -544,7 +551,7 @@ onInputChangeEight(commentEight) {
           </div>
           {/*Question Hint 4 End*/}
           {/*Question 4 Start*/}
-          <div className="section" id="question_four">
+          <div className="section" id="question_four" style={{ display: this.state.display }}>
            
             <h2 className="center light">04.</h2>
             <h4 className="center light">My manager provides me with feedback about my performance to help me do my job better.
@@ -573,7 +580,7 @@ onInputChangeEight(commentEight) {
                 <div className="col s3 m3" />
             </div>
           </div>
-        </div>
+        
                 {/*Comment Field*/}
                 <div className="row">
           <div className="col s3 m3" />
@@ -593,10 +600,11 @@ onInputChangeEight(commentEight) {
             </div>
           </div>
         </div>
+        
         <div className="col s3 m3" />
-        <div>
+       
           <br /><br /><br /><br />
-         </div>
+        
           {/*Question 4 End*/}
           {/*Question Hint 5 Start*/}
           <div className="center-block" id="message-box" style={{ visibility: this.state.visibility }} onClick={this.hideMessage}>
@@ -606,8 +614,9 @@ onInputChangeEight(commentEight) {
           color={Styles.Colors.PRIMARY}
         />
         </div>
+        </div>
         
-          <div className="section" id="question_hint1">
+          <div className="section" id="question_hint1" style={{ display: this.state.display }}>
             <div className="row">
               <div className="col s4 m4" />
               <div className="col s4 m4">
@@ -620,7 +629,7 @@ onInputChangeEight(commentEight) {
           </div>
           {/*Question Hint 5 End*/}
           {/*Question 5 Start*/}
-          <div className="section" id="question_five">
+          <div className="section" id="question_five" style={{ display: this.state.display }}>
            
             <h2 className="center light">05.</h2>
             <h4 className="center light">I feel empowered to make decisions regarding my work.
@@ -649,7 +658,7 @@ onInputChangeEight(commentEight) {
                 <div className="col s3 m3" />
             </div>
           </div>
-        </div>
+       
                 {/*Comment Field*/}
                 <div className="row">
           <div className="col s3 m3" />
@@ -669,10 +678,11 @@ onInputChangeEight(commentEight) {
             </div>
           </div>
         </div>
+        
         <div className="col s3 m3" />
-        <div>
+        
           <br /><br /><br /><br />
-         </div>
+         
           {/*Question 5 End*/}
           {/*Question Hint 5 Start*/}
           <div className="center-block" id="message-box" style={{ visibility: this.state.visibility }} onClick={this.hideMessage}>
@@ -682,8 +692,9 @@ onInputChangeEight(commentEight) {
           color={Styles.Colors.PRIMARY}
         />
         </div>
+        </div>
         
-          <div className="section" id="question_hint1">
+          <div className="section" id="question_hint1" style={{ display: this.state.display }}>
             <div className="row">
               <div className="col s4 m4" />
               <div className="col s4 m4">
@@ -696,7 +707,7 @@ onInputChangeEight(commentEight) {
           </div>
           {/*Question Hint 5 End*/}
           {/*Question 6 Start*/}
-          <div className="section" id="question_six">
+          <div className="section" id="question_six" style={{ display: this.state.display }}>
           
             <h2 className="center light">06.</h2>
             <h4 className="center light">I would highly recommend my manager to others.
@@ -725,7 +736,7 @@ onInputChangeEight(commentEight) {
                 <div className="col s3 m3" />
             </div>
           </div>
-        </div>
+        
                 {/*Comment Field*/}
                 <div className="row">
           <div className="col s3 m3" />
@@ -745,10 +756,11 @@ onInputChangeEight(commentEight) {
             </div>
           </div>
         </div>
+        
         <div className="col s3 m3" />
-        <div>
+        
           <br /><br /><br /><br />
-         </div>
+         
           {/*Question 6 End*/}
           {/*Question Hint 6 Start*/}
           <div className="center-block" id="message-box" style={{ visibility: this.state.visibility }} onClick={this.hideMessage}>
@@ -758,8 +770,9 @@ onInputChangeEight(commentEight) {
           color={Styles.Colors.PRIMARY}
         />
         </div>
+        </div>
         
-          <div className="section" id="question_hint1">
+          <div className="section" id="question_hint1" style={{ display: this.state.display }}>
             <div className="row">
               <div className="col s4 m4" />
               <div className="col s4 m4">
@@ -772,7 +785,7 @@ onInputChangeEight(commentEight) {
           </div>
           {/*Question Hint 6 End*/}
           {/*Question 7 Start*/}
-          <div className="section" id="question_seven">
+          <div className="section" id="question_seven" style={{ display: this.state.display }}>
          
              
             <h2 className="center light">07.</h2>
@@ -802,7 +815,7 @@ onInputChangeEight(commentEight) {
                 <div className="col s3 m3" />
             </div>
           </div>
-        </div>
+        
                 {/*Comment Field*/}
                 <div className="row">
           <div className="col s3 m3" />
@@ -822,10 +835,11 @@ onInputChangeEight(commentEight) {
             </div>
           </div>
         </div>
+       
         <div className="col s3 m3" />
-        <div>
+       
           <br /><br /><br /><br />
-         </div>
+         
           {/*Question 7 End*/}
           {/*Question Hint 7 Start*/}
           <div className="center-block" id="message-box" style={{ visibility: this.state.visibility }} onClick={this.hideMessage}>
@@ -835,8 +849,9 @@ onInputChangeEight(commentEight) {
           color={Styles.Colors.PRIMARY}
         />
         </div>
+        </div>
         
-          <div className="section" id="question_hint1">
+          <div className="section" id="question_hint1" style={{ display: this.state.display }}>
             <div className="row">
               <div className="col s4 m4" />
               <div className="col s4 m4">
@@ -849,7 +864,7 @@ onInputChangeEight(commentEight) {
           </div>
           {/*Question Hint 7 End*/}
           {/*Question 8 Start*/}
-          <div className="section" id="question_eight">
+          <div className="section" id="question_eight" style={{ display: this.state.display }}>
            
             <h2 className="center light">08.</h2>
             <h4 className="center light">What else is on your mind?
@@ -863,7 +878,7 @@ onInputChangeEight(commentEight) {
                 <div className="col s3 m3" />
             </div>
           </div>
-        </div>
+        
                 {/*Comment Field*/}
                 <div className="row">
           <div className="col s3 m3" />
@@ -883,17 +898,20 @@ onInputChangeEight(commentEight) {
             </div>
           </div>
         </div>
+        
         <div className="col s3 m3" />
-        <div>
+        
           <br /><br /><br /><br />
-         </div>
+         
           {/*Question 8 End*/}
-        </div>
+        
         <div className="center" id="submitBtn">
         <Button id="submit-responses" aria-label='Submit Form' elementProps={{ 'data-my-attribute': 'my attribute data here' }} theme={{ Colors: { PRIMARY: '#333333' } }} type='secondary'>Submit Responses</Button>
           <br />
           <br />
         </div>
+      </div>
+      </div>
       </div>
 
     );
