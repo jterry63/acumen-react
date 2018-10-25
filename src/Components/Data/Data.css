@@ -86,11 +86,30 @@
   }
 
 
-  .card-container {
-    height: 600px;
+  #question_one {
+    height: 700px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1) !important;
   padding: 10px;
   
+}
+
+#q-two-visible, #q-three-visible, #q-four-visible, #q-five-visible, #q-six-visible, #q-seven-visible, #q-eight-visible {
+  height: 700px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1) !important;
+  padding: 10px;
+  background-color: white;
+}
+
+#hidden-question {
+display: none;
+}
+
+#check-icon-one, #check-icon-two, #check-icon-three, #check-icon-four, #check-icon-five, #check-icon-six, #check-icon-seven, #check-icon-eight {
+display: none;
+}
+
+#message-icon {
+  color: #529aca;
 }
 
 

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./Data.css";
 import Range from '../../Components/Range/Range';
-import { ProgressBar, TextArea, Button, MessageBox, Styles } from "mx-react-components";
-
+import { ProgressBar, TextArea, Button, MessageBox, Styles, Icon } from "mx-react-components";
+import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 
 
@@ -27,7 +27,7 @@ class Data extends Component {
       percentage: 0,
       progress: "Progress 0/8",
       visibility: "hidden",
-      display: "none",
+      display: "block",
       commentOne: '',
       commentTwo: '',
       commentThree: '',
@@ -35,7 +35,31 @@ class Data extends Component {
       commentFive: '',
       commentSix: '',
       commentSeven: '',
-      commentEight: ''
+      commentEight: '', 
+      questionTwo: 'hidden-question',
+      questionThree: 'hidden-question',
+      questionFour: 'hidden-question',
+      questionFive: 'hidden-question',
+      questionSix: 'hidden-question',
+      questionSeven: 'hidden-question',
+      questionEight: 'hidden-question',
+      arrowOne: 'message-icon',
+      checkOne: 'check-icon-one',
+      arrowTwo: 'message-icon',
+      checkTwo: 'check-icon-one',
+      arrowThree: 'message-icon',
+      checkThree: 'check-icon-one',
+      arrowFour: 'message-icon',
+      checkFour: 'check-icon-one',
+      arrowFive: 'message-icon',
+      checkFive: 'check-icon-one',
+      arrowSix: 'message-icon',
+      checkSix: 'check-icon-one',
+      arrowSeven: 'message-icon',
+      checkSeven: 'check-icon-one'
+     
+
+  
     }
     this.updateRangeOne = this.updateRangeOne.bind(this);
     this.updateRangeTwo = this.updateRangeTwo.bind(this);
@@ -88,6 +112,64 @@ class Data extends Component {
     })
   } 
 
+  showQuestionTwo = () => {
+    this.setState({ 
+      questionTwo: "q-two-visible",
+      arrowOne: "hidden-question",
+      checkOne: "message-icon"
+
+  })
+};
+
+showQuestionThree = () => {
+  this.setState({ 
+      questionThree: "q-three-visible",
+      arrowTwo: "hidden-question",
+      checkTwo: "message-icon"
+})
+};
+
+showQuestionFour = () => {
+  this.setState({ 
+      questionFour: "q-four-visible",
+      arrowThree: "hidden-question",
+      checkThree: "message-icon"
+})
+};
+
+showQuestionFive = () => {
+  this.setState({ 
+      questionFive: "q-five-visible",
+      arrowFour: "hidden-question",
+      checkFour: "message-icon"
+})
+};
+
+showQuestionSix = () => {
+  this.setState({ 
+     questionSix: "q-six-visible",
+     arrowFive: "hidden-question",
+     checkFive: "message-icon"
+})
+};
+
+showQuestionSeven = () => {
+  this.setState({ 
+      questionSeven: "q-seven-visible",
+      arrowSix: "hidden-question",
+      checkSix: "message-icon"
+})
+};
+
+showQuestionEight = () => {
+  this.setState({ 
+      questionEight: "q-eight-visible",
+      arrowSeven: "hidden-question",
+      checkSeven: "message-icon"
+})
+};
+
+
 
   componentDidMount = () => {
     window.addEventListener("scroll", this.handleScroll);
@@ -135,8 +217,13 @@ class Data extends Component {
       })
       console.log(this.state.rangeValOne);
       console.log(this.state.commentOne);
+      this.showQuestionTwo();
+      scroll.scrollTo(1350);
+   
     
   };
+
+
 
   handleProgressUpdateTwo = () => {
     
@@ -147,6 +234,8 @@ class Data extends Component {
       })
       console.log(this.state.rangeValTwo);
       console.log(this.state.commentTwo);
+      this.showQuestionThree();
+      scroll.scrollTo(2100);
   };
 
   handleProgressUpdateThree = () => {
@@ -158,6 +247,8 @@ class Data extends Component {
       })
       console.log(this.state.rangeValThree);
       console.log(this.state.commentThree);
+      this.showQuestionFour();
+      scroll.scrollTo(2825);
   };
 
   handleProgressUpdateFour = () => {
@@ -169,6 +260,8 @@ class Data extends Component {
       })
       console.log(this.state.rangeValFour);
       console.log(this.state.commentFour);
+      this.showQuestionFive();
+      scroll.scrollTo(3590);
   };
 
   handleProgressUpdateFive = () => {
@@ -180,6 +273,8 @@ class Data extends Component {
       })
       console.log(this.state.rangeValFive);
       console.log(this.state.commentFive);
+      this.showQuestionSix();
+      scroll.scrollTo(4320);
   };
 
   handleProgressUpdateSix = () => {
@@ -191,6 +286,8 @@ class Data extends Component {
       })
       console.log(this.state.rangeValSix);
       console.log(this.state.commentSix);
+      this.showQuestionSeven();
+      scroll.scrollTo(5045);
   };
 
   handleProgressUpdateSeven = () => {
@@ -202,6 +299,8 @@ class Data extends Component {
       })
       console.log(this.state.rangeValSeven);
       console.log(this.state.commentSeven);
+      this.showQuestionEight();
+      scroll.scrollTo(5785);
   };
 
   handleProgressUpdateEight = () => {
@@ -320,7 +419,9 @@ onInputChangeEight(commentEight) {
         </div>
         {/*Question 1 Start*/}
         
-        <div className="card-container center-block" id="question_one" style={{ backgroundColor: "white" }} onClick={this.hideMessage}>
+        <br /> <br />
+
+        <div className="card-container center-block" id="question_one" style={{ backgroundColor: "white" }}>
           <h2 className="center light">01.</h2>
           <h4 className="center light">How happy are you working at Example Inc?
           </h4>
@@ -369,33 +470,49 @@ onInputChangeEight(commentEight) {
             </div>
           </div>
         </div>
-        </div>
-       
-        <div>
-          <br /><br /><br /><br />
-          {/*Question 1 End*/}
-          {/*Question Hint 1 Start*/}
-          <div className="center-block" id="message-box" style={{ visibility: this.state.visibility }} onClick={this.hideMessage}>
+        <br /><br />
+        <div className="center-block" id="message-box" style={{ visibility: this.state.visibility }} onClick={this.hideMessage}>
           <MessageBox
           icon='attention-solid'
           title='This question is required.'
           color={Styles.Colors.PRIMARY}
         />
         </div>
-          <div className="section" id="question_hint1">
-            <div className="row">
-              <div className="col s4 m4" />
-              <div className="col s4 m4">
-                <div className="center">
-                  <i className="material-icons center" onClick={this.handleMessageClick} id="dropDownHint">keyboard_arrow_down</i>
-                </div>
-              </div>
-              <div className="col s4 m4" />
-            </div>
-          </div>
+
+        <br /><br />
+<div className="center" id={this.state.arrowOne} onClick={this.handleMessageClick}>
+         <Icon
+          size={50}
+          style={{ fill: 'silver', cursor: "pointer", }}
+          type='caret-down'
+          
+        />
+        </div>
+        <div className="center" id={this.state.checkOne}>
+         <Icon
+          size={50}
+          style={{ fill: '#529aca'}}
+          type='check-solid'
+          
+        />
+        </div>
+
+
+        
+       
+        </div>
+
+         <br /><br />
+       
+     
+          {/*Question 1 End*/}
+          {/*Question Hint 1 Start*/}
+         
+        
+      
           {/*Question Hint 1 End*/}
           {/*Question 2 Start*/}
-          <div className="section" id="question_two" style={{ display: this.state.display }}>
+          <div className="card-container center-block" id={this.state.questionTwo}>
         
             <h2 className="center light">02.</h2>
             <h4 className="center light">I frequently receive recognition for my work.
@@ -441,39 +558,53 @@ onInputChangeEight(commentEight) {
         <br />
               <Button className="right" id="save1" aria-label='Submit Form' elementProps={{ 'data-my-attribute': 'my attribute data here' }} theme={{ Colors: { PRIMARY: '#333333' } }} type='secondary' onClick={this.handleProgressUpdateTwo}>Save</Button>
               <Button className="right" id="skip1" aria-label='Submit Form' elementProps={{ 'data-my-attribute': 'my attribute data here' }} theme={{ Colors: { PRIMARY: '#333333' } }} type='secondary' onClick={this.handleProgressUpdateTwo}>Skip</Button>
-            </div>
+              </div>
           </div>
         </div>
-        
-        
-        
-          <br /><br /><br /><br />
-          
-          {/*Question 2 End*/}
-          {/*Question Hint 2 Start*/}
-          <div className="center-block" id="message-box" style={{ visibility: this.state.visibility }} onClick={this.hideMessage}>
+        <br /><br />
+        <div className="center-block" id="message-box" style={{ visibility: this.state.visibility }} onClick={this.hideMessage}>
           <MessageBox
           icon='attention-solid'
           title='This question is required.'
           color={Styles.Colors.PRIMARY}
         />
         </div>
+
+        <br /><br />
+<div className="center" id={this.state.arrowTwo} onClick={this.handleMessageClick}>
+         <Icon
+          size={50}
+          style={{ fill: 'silver', cursor: "pointer", }}
+          type='caret-down'
+          
+        />
+        </div>
+        <div className="center" id={this.state.checkTwo}>
+         <Icon
+          size={50}
+          style={{ fill: '#529aca'}}
+          type='check-solid'
+          
+        />
         </div>
 
-          <div className="section" id="question_hint1" style={{ display: this.state.display }}>
-            <div className="row">
-              <div className="col s4 m4" />
-              <div className="col s4 m4">
-                <div className="center">
-                  <i className="material-icons center" onClick={this.handleMessageClick} id="dropDownHint">keyboard_arrow_down</i>
-                </div>
-              </div>
-              <div className="col s4 m4" />
-            </div>
-          </div>
+
+        
+       
+        </div>
+
+         <br /><br />
+        
+          
+          {/*Question 2 End*/}
+          {/*Question Hint 2 Start*/}
+      
+
+      
+
           {/*Question Hint 2 End*/}
           {/*Question 3 Start*/}
-          <div className="section" id="question_three" style={{ display: this.state.display }}>
+          <div className="card-container center-block" id={this.state.questionThree}>
            
             <h2 className="center light">03.</h2>
             <h4 className="center light">I have the resources I need to do my job well.
@@ -519,39 +650,57 @@ onInputChangeEight(commentEight) {
         <br />
               <Button className="right" id="save1" aria-label='Submit Form' elementProps={{ 'data-my-attribute': 'my attribute data here' }} theme={{ Colors: { PRIMARY: '#333333' } }} type='secondary' onClick={this.handleProgressUpdateThree}>Save</Button>
               <Button className="right" id="skip1" aria-label='Submit Form' elementProps={{ 'data-my-attribute': 'my attribute data here' }} theme={{ Colors: { PRIMARY: '#333333' } }} type='secondary' onClick={this.handleProgressUpdateThree}>Skip</Button>
-            </div>
+              </div>
           </div>
         </div>
-        
-        
-       
-          <br /><br /><br /><br />
-        
-          {/*Question 3 End*/}
-          {/*Question Hint 4 Start*/}
-          <div className="center-block" id="message-box" style={{ visibility: this.state.visibility }} onClick={this.hideMessage}>
+        <br /><br />
+        <div className="center-block" id="message-box" style={{ visibility: this.state.visibility }} onClick={this.hideMessage}>
           <MessageBox
           icon='attention-solid'
           title='This question is required.'
           color={Styles.Colors.PRIMARY}
         />
         </div>
+
+            <br /><br />
+<div className="center" id={this.state.arrowThree} onClick={this.handleMessageClick}>
+         <Icon
+          size={50}
+          style={{ fill: 'silver', cursor: "pointer", }}
+          type='caret-down'
+          
+        />
         </div>
+        <div className="center" id={this.state.checkThree}>
+         <Icon
+          size={50}
+          style={{ fill: '#529aca'}}
+          type='check-solid'
+          
+        />
+        </div>
+
+
         
-          <div className="section" id="question_hint1" style={{ display: this.state.display }}>
-            <div className="row">
-              <div className="col s4 m4" />
-              <div className="col s4 m4">
-                <div className="center">
-                  <i className="material-icons center" onClick={this.handleMessageClick} id="dropDownHint">keyboard_arrow_down</i>
-                </div>
-              </div>
-              <div className="col s4 m4" />
-            </div>
-          </div>
+       
+        </div>
+
+         <br /><br />
+        
+        
+       
+       
+        
+          {/*Question 3 End*/}
+          {/*Question Hint 4 Start*/}
+     
+        
+   
+
+        
           {/*Question Hint 4 End*/}
           {/*Question 4 Start*/}
-          <div className="section" id="question_four" style={{ display: this.state.display }}>
+          <div className="card-container center-block" id={this.state.questionFour}>
            
             <h2 className="center light">04.</h2>
             <h4 className="center light">My manager provides me with feedback about my performance to help me do my job better.
@@ -597,39 +746,55 @@ onInputChangeEight(commentEight) {
         <br />
               <Button className="right" id="save1" aria-label='Submit Form' elementProps={{ 'data-my-attribute': 'my attribute data here' }} theme={{ Colors: { PRIMARY: '#333333' } }} type='secondary' onClick={this.handleProgressUpdateFour}>Save</Button>
               <Button className="right" id="skip1" aria-label='Submit Form' elementProps={{ 'data-my-attribute': 'my attribute data here' }} theme={{ Colors: { PRIMARY: '#333333' } }} type='secondary' onClick={this.handleProgressUpdateFour}>Skip</Button>
-            </div>
+              </div>
           </div>
         </div>
         
-        <div className="col s3 m3" />
-       
-          <br /><br /><br /><br />
-        
-          {/*Question 4 End*/}
-          {/*Question Hint 5 Start*/}
-          <div className="center-block" id="message-box" style={{ visibility: this.state.visibility }} onClick={this.hideMessage}>
+        <div className="center-block" id="message-box" style={{ visibility: this.state.visibility }} onClick={this.hideMessage}>
           <MessageBox
           icon='attention-solid'
           title='This question is required.'
           color={Styles.Colors.PRIMARY}
         />
         </div>
+
+            <br /><br />
+<div className="center" id={this.state.arrowFour} onClick={this.handleMessageClick}>
+         <Icon
+          size={50}
+          style={{ fill: 'silver', cursor: "pointer", }}
+          type='caret-down'
+          
+        />
         </div>
+        <div className="center" id={this.state.checkFour}>
+         <Icon
+          size={50}
+          style={{ fill: '#529aca'}}
+          type='check-solid'
+          
+        />
+        </div>
+
+
         
-          <div className="section" id="question_hint1" style={{ display: this.state.display }}>
-            <div className="row">
-              <div className="col s4 m4" />
-              <div className="col s4 m4">
-                <div className="center">
-                  <i className="material-icons center" onClick={this.handleMessageClick} id="dropDownHint">keyboard_arrow_down</i>
-                </div>
-              </div>
-              <div className="col s4 m4" />
-            </div>
-          </div>
+       
+        </div>
+
+         <br /><br />
+        
+        <div className="col s3 m3" />
+       
+         
+        
+          {/*Question 4 End*/}
+          {/*Question Hint 5 Start*/}
+      
+
+        
           {/*Question Hint 5 End*/}
           {/*Question 5 Start*/}
-          <div className="section" id="question_five" style={{ display: this.state.display }}>
+          <div className="card-container center-block" id={this.state.questionFive}>
            
             <h2 className="center light">05.</h2>
             <h4 className="center light">I feel empowered to make decisions regarding my work.
@@ -675,39 +840,57 @@ onInputChangeEight(commentEight) {
         <br />
               <Button className="right" id="save1" aria-label='Submit Form' elementProps={{ 'data-my-attribute': 'my attribute data here' }} theme={{ Colors: { PRIMARY: '#333333' } }} type='secondary' onClick={this.handleProgressUpdateFive}>Save</Button>
               <Button className="right" id="skip1" aria-label='Submit Form' elementProps={{ 'data-my-attribute': 'my attribute data here' }} theme={{ Colors: { PRIMARY: '#333333' } }} type='secondary' onClick={this.handleProgressUpdateFive}>Skip</Button>
-            </div>
+              </div>
           </div>
         </div>
-        
-        <div className="col s3 m3" />
-        
-          <br /><br /><br /><br />
-         
-          {/*Question 5 End*/}
-          {/*Question Hint 5 Start*/}
-          <div className="center-block" id="message-box" style={{ visibility: this.state.visibility }} onClick={this.hideMessage}>
+        <br /><br />
+        <div className="center-block" id="message-box" style={{ visibility: this.state.visibility }} onClick={this.hideMessage}>
           <MessageBox
           icon='attention-solid'
           title='This question is required.'
           color={Styles.Colors.PRIMARY}
         />
         </div>
+
+            <br /><br />
+<div className="center" id={this.state.arrowFive} onClick={this.handleMessageClick}>
+         <Icon
+          size={50}
+          style={{ fill: 'silver', cursor: "pointer", }}
+          type='caret-down'
+          
+        />
         </div>
+        <div className="center" id={this.state.checkFive}>
+         <Icon
+          size={50}
+          style={{ fill: '#529aca'}}
+          type='check-solid'
+          
+        />
+        </div>
+
+
         
-          <div className="section" id="question_hint1" style={{ display: this.state.display }}>
-            <div className="row">
-              <div className="col s4 m4" />
-              <div className="col s4 m4">
-                <div className="center">
-                  <i className="material-icons center" onClick={this.handleMessageClick} id="dropDownHint">keyboard_arrow_down</i>
-                </div>
-              </div>
-              <div className="col s4 m4" />
-            </div>
-          </div>
+       
+        </div>
+
+         <br /><br />
+        
+        <div className="col s3 m3" />
+        
+          
+         
+          {/*Question 5 End*/}
+          {/*Question Hint 5 Start*/}
+     
+        
+       
+
+        
           {/*Question Hint 5 End*/}
           {/*Question 6 Start*/}
-          <div className="section" id="question_six" style={{ display: this.state.display }}>
+          <div className="card-container center-block" id={this.state.questionSix}>
           
             <h2 className="center light">06.</h2>
             <h4 className="center light">I would highly recommend my manager to others.
@@ -753,39 +936,56 @@ onInputChangeEight(commentEight) {
         <br />
               <Button className="right" id="save1" aria-label='Submit Form' elementProps={{ 'data-my-attribute': 'my attribute data here' }} theme={{ Colors: { PRIMARY: '#333333' } }} type='secondary' onClick={this.handleProgressUpdateSix}>Save</Button>
               <Button className="right" id="skip1" aria-label='Submit Form' elementProps={{ 'data-my-attribute': 'my attribute data here' }} theme={{ Colors: { PRIMARY: '#333333' } }} type='secondary' onClick={this.handleProgressUpdateSix}>Skip</Button>
-            </div>
+              </div>
           </div>
         </div>
-        
-        <div className="col s3 m3" />
-        
-          <br /><br /><br /><br />
-         
-          {/*Question 6 End*/}
-          {/*Question Hint 6 Start*/}
-          <div className="center-block" id="message-box" style={{ visibility: this.state.visibility }} onClick={this.hideMessage}>
+        <br /><br />
+        <div className="center-block" id="message-box" style={{ visibility: this.state.visibility }} onClick={this.hideMessage}>
           <MessageBox
           icon='attention-solid'
           title='This question is required.'
           color={Styles.Colors.PRIMARY}
         />
         </div>
+
+           <br /><br />
+<div className="center" id={this.state.arrowSix} onClick={this.handleMessageClick}>
+         <Icon
+          size={50}
+          style={{ fill: 'silver', cursor: "pointer", }}
+          type='caret-down'
+          
+        />
         </div>
+        <div className="center" id={this.state.checkSix}>
+         <Icon
+          size={50}
+          style={{ fill: '#529aca'}}
+          type='check-solid'
+          
+        />
+        </div>
+
+
         
-          <div className="section" id="question_hint1" style={{ display: this.state.display }}>
-            <div className="row">
-              <div className="col s4 m4" />
-              <div className="col s4 m4">
-                <div className="center">
-                  <i className="material-icons center" onClick={this.handleMessageClick} id="dropDownHint">keyboard_arrow_down</i>
-                </div>
-              </div>
-              <div className="col s4 m4" />
-            </div>
-          </div>
+       
+        </div>
+
+         <br /><br />
+        
+        <div className="col s3 m3" />
+        
+          
+         
+          {/*Question 6 End*/}
+          {/*Question Hint 6 Start*/}
+  
+   
+
+         
           {/*Question Hint 6 End*/}
           {/*Question 7 Start*/}
-          <div className="section" id="question_seven" style={{ display: this.state.display }}>
+          <div className="card-container center-block" id={this.state.questionSeven}>
          
              
             <h2 className="center light">07.</h2>
@@ -832,39 +1032,56 @@ onInputChangeEight(commentEight) {
         <br />
               <Button className="right" id="save1" aria-label='Submit Form' elementProps={{ 'data-my-attribute': 'my attribute data here' }} theme={{ Colors: { PRIMARY: '#333333' } }} type='secondary' onClick={this.handleProgressUpdateSeven}>Save</Button>
               <Button className="right" id="skip1" aria-label='Submit Form' elementProps={{ 'data-my-attribute': 'my attribute data here' }} theme={{ Colors: { PRIMARY: '#333333' } }} type='secondary' onClick={this.handleProgressUpdateSeven}>Skip</Button>
-            </div>
+              </div>
           </div>
         </div>
-       
-        <div className="col s3 m3" />
-       
-          <br /><br /><br /><br />
-         
-          {/*Question 7 End*/}
-          {/*Question Hint 7 Start*/}
-          <div className="center-block" id="message-box" style={{ visibility: this.state.visibility }} onClick={this.hideMessage}>
+        <br /><br />
+        <div className="center-block" id="message-box" style={{ visibility: this.state.visibility }} onClick={this.hideMessage}>
           <MessageBox
           icon='attention-solid'
           title='This question is required.'
           color={Styles.Colors.PRIMARY}
         />
         </div>
+
+            <br /><br />
+<div className="center" id={this.state.arrowSeven} onClick={this.handleMessageClick}>
+         <Icon
+          size={50}
+          style={{ fill: 'silver', cursor: "pointer", }}
+          type='caret-down'
+          
+        />
         </div>
+        <div className="center" id={this.state.checkSeven}>
+         <Icon
+          size={50}
+          style={{ fill: '#529aca'}}
+          type='check-solid'
+          
+        />
+        </div>
+
+
         
-          <div className="section" id="question_hint1" style={{ display: this.state.display }}>
-            <div className="row">
-              <div className="col s4 m4" />
-              <div className="col s4 m4">
-                <div className="center">
-                  <i className="material-icons center" onClick={this.handleMessageClick} id="dropDownHint">keyboard_arrow_down</i>
-                </div>
-              </div>
-              <div className="col s4 m4" />
-            </div>
-          </div>
+       
+        </div>
+
+         <br /><br />
+       
+        <div className="col s3 m3" />
+       
+         
+          {/*Question 7 End*/}
+          {/*Question Hint 7 Start*/}
+        
+        
+       
+
+           
           {/*Question Hint 7 End*/}
           {/*Question 8 Start*/}
-          <div className="section" id="question_eight" style={{ display: this.state.display }}>
+          <div className="card-container center-block" id={this.state.questionEight}>
            
             <h2 className="center light">08.</h2>
             <h4 className="center light">What else is on your mind?
@@ -907,12 +1124,12 @@ onInputChangeEight(commentEight) {
         
         <div className="center" id="submitBtn">
         <Button id="submit-responses" aria-label='Submit Form' elementProps={{ 'data-my-attribute': 'my attribute data here' }} theme={{ Colors: { PRIMARY: '#333333' } }} type='secondary'>Submit Responses</Button>
-          <br />
-          <br />
+         
         </div>
       </div>
+      <br /> <br />
       </div>
-      </div>
+   
 
     );
   }

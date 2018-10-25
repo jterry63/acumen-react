@@ -12,6 +12,7 @@
     "react-parallax": "^2.0.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
+    "react-scroll": "^1.7.10",
     "routes": "^2.1.0"
   },
   "scripts": {
