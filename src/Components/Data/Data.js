@@ -19,9 +19,9 @@ class Data extends Component {
       rangeValFive: 3,
       rangeValSix: 3,
       rangeValSeven: 3,
-      backgroundColor: "white",
-      imgSrc: "../images/acumen2.png",
-      color: "darkcyan",
+      backgroundColor: "rgba(71,71,71,1)",
+      imgSrc: "../images/acumen3.png",
+      color: "white",
       border: "1px solid white",
       width: "10%",
       percentage: 0,
@@ -177,17 +177,17 @@ showQuestionEight = () => {
 
   handleScroll = e => {
     if (window.scrollY > 10) {
-      this.setState({ backgroundColor: "rgba(71,71,71,.9)",
-        imgSrc: "../images/acumen-white.png",
+      this.setState({ backgroundColor: "rgba(71,71,71,1)",
+        imgSrc: "../images/acumen3.png",
         color: "white"
     
     });
       
     } else {
       this.setState({
-        backgroundColor: "white",
-        imgSrc: "../images/acumen2.png",
-        color: "darkcyan",
+        backgroundColor: "rgba(71,71,71,1)",
+        imgSrc: "../images/acumen3.png",
+        color: "white",
         border: "1px solid white"
       });
     }
@@ -354,7 +354,7 @@ onInputChangeEight(commentEight) {
                <nav
           className="nav-master-survey" style={{ backgroundColor: this.state.backgroundColor }}>
           <div className="navbar-fixed">
-            <a className="navbar-brand" href="#">
+            <a className="navbar-brand-survey" href="#">
             <img src={this.state.imgSrc} />
             </a>
             
@@ -363,7 +363,7 @@ onInputChangeEight(commentEight) {
         <ProgressBar
           baseColor='#ACB0B3'
           percentage={this.state.percentage}
-          progressColor="#529aca"
+          progressColor="#359BCF"
           styles={{ component: { width: '100%' } }}
         />
       </div>
@@ -373,8 +373,8 @@ onInputChangeEight(commentEight) {
     
         {/*Survey Header*/}
         <div className="section" id="surveyHeader">
-          <br /><br />
-          <h2 className="center light" style={{ color: "white" }} id="helloHeader">Hello.</h2>
+          <br /><br /><br /><br /><br /><br />
+          <h1 className="center light" style={{ color: "white" }} id="helloHeader">Hello.</h1>
           <div className="row">
             <div className="col s3 m3" />
             <div className="col s6 m6">
@@ -407,13 +407,19 @@ onInputChangeEight(commentEight) {
             <br /> in aggregate groups. For more information view the: Data Protection Summary.<br /> Take care not to identify
             yourself in the comments.</p>
           <br />
+          <div className="center">
+            <Icon
+          size={50}
+          style={{ fill: 'white', cursor: "pointer", }}
+          type='caret-down'
+          
+        />
+            </div>
         </div>
         <div className="row">
           <div className="col s4 m4" />
           <div className="col s4 m4">
-            <div className="center">
-              <i className="material-icons center" id="dropDownIcon">keyboard_arrow_down</i>
-            </div>
+         
           </div>
           <div className="col s4 m4" />
         </div>
@@ -1127,6 +1133,7 @@ onInputChangeEight(commentEight) {
          
         </div>
       </div>
+      
       <br /> <br />
       </div>
    

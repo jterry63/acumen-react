@@ -16,7 +16,7 @@ class Nav extends Component {
 
   handleScroll = e => {
     if (window.scrollY > 10) {
-      this.setState({ backgroundColor: "rgba(71,71,71,.9)" });
+      this.setState({ backgroundColor: "rgba(71,71,71,.9)", imgSrc: "../images/acumen3.png" });
     } else {
       this.setState({
         backgroundColor: "transparent",
