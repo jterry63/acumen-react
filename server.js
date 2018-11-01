@@ -1,26 +1,53 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-
+var connection = require("./client/connection.js")
 const routes = require("./routes");
-const app = express();
-const PORT = process.env.PORT || 3001;
+const mysql = require('mysql');
+const path = require('path');
 
+// Sets up the Express App
+// =============================================================
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+
+
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+app.get("/api/data", function (req, res) {
+  var dbQuery = "SELECT * FROM vle2lt3dz5ogjgdk.surveys";
+
+  connection.query(dbQuery, function (err, result) {
+    if (err) throw err;
+    res.json(result);
+  });
+});
+
+app.get('*', (req,res) =>{
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
+
+
+
+
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("build"));
+//   app.use(express.static("public"));
+// }
+
+// Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static("public"));
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-  app.use(express.static("public"));
-}
-app.use(routes);
+// app.use(express.static("public"));
+// app.use(express.static("client/build"));
 
 
-app.listen(PORT, function() {
-  console.log(
-    `🌎 ==> API Server now listening on PORT http//localhost:${PORT}`
-  );
-});
+// Starting the server, syncing our models ------------------------------------/
+// db.sequelize.sync(syncOptions).then(function () {
+
+// app.use(routes);
+
+// require("./routes/api/apiRoutes")(app);
 
 connection.connect(function (err) {
   if (err) {
@@ -30,4 +57,13 @@ connection.connect(function (err) {
   console.log("==> Connected to JawsDB as id " + connection.threadId);
 });
 
-module.exports = app;
+
+app.listen(PORT, function () {
+  console.log(
+    "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+    PORT,
+    PORT
+  );
+});
+
+
