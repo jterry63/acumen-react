@@ -48,9 +48,8 @@ class Admin extends Component {
     <SimpleSelect
       aria-label='Select a category'
       items={[
-        { icon: 'auto', text: 'Auto', onClick: this._handleItemClick },
-        { icon: 'kids', isSelected: true, text: 'Kids', onClick: this._handleItemClick },
-        { icon: 'pets', text: 'Pets', onClick: this._handleItemClick }
+        { text: 'Settings', onClick: this._handleItemClick },
+        { text: 'Logout', onClick: this._handleItemClick }
       ]}
       onScrimClick={this._toggleMenu}
     //   styles={{ menu: { backgroundColor: 'red' } }}
@@ -65,7 +64,9 @@ class Admin extends Component {
       </nav>
 
 <div className="sidebar"> 
-
+<br></br>
+ <div style={{backgroundColor: '#9ae2e6', borderRadius: 6, height: 6, marginLeft: 15, marginRight: 15, width: 6, boxShadow: 'rgb(161,237,214) 0px 0px 10px'}} />
+ 
 
 </div>
 
@@ -74,6 +75,8 @@ class Admin extends Component {
 
 
 </div>
+
+
 
     
     </div>
