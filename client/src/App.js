@@ -6,6 +6,7 @@ import './App.css';
 import Home from './Pages/Home/Home';
 import Survey from './Pages/Survey/Survey';
 import Test from './Pages/Test/Test';
+import Admin from './Pages/Admin/Admin'
 
 const App = () => (
   <Router>
@@ -13,6 +14,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/survey" component={Survey} />
+        <Route exact path="/admin" component={Admin} />
         <Route exact path="/test" component={Test} />
         
       
