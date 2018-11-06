@@ -8,7 +8,9 @@ const path = require('path');
 // Sets up the Express App
 // =============================================================
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
+
+var surveyData = [];
 
 
 var connection = mysql.createConnection({
@@ -22,21 +24,25 @@ var connection = mysql.createConnection({
 });
 
 
-app.use(express.static('client/build'));
+app.use(express.static("client/build"));
+app.use(express.static("public"));
 
 
 
-app.get("/api/data", function (req, res) {
-  var dbQuery = "SELECT * FROM vle2lt3dz5ogjgdk.surveys";
 
-  connection.query(dbQuery, function (err, result) {
-    if (err) throw err;
-    res.json(result);
+// app.get("/api/data", function (req, res) {
+//   var dbQuery = "SELECT * FROM vle2lt3dz5ogjgdk.surveys";
+
+//   connection.query(dbQuery, function (err, result) {
+//     if (err) throw err;
+//     res.json(result);
     
-  });
-});
+//   });
+// });
 
-// app.get('*', (req,res) =>{
+
+
+// app.get('/', (req,res) =>{
 //   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 // });
 

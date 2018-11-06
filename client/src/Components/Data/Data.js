@@ -3,7 +3,7 @@ import "./Data.css";
 import Range from '../../Components/Range/Range';
 import { ProgressBar, TextArea, Button, MessageBox, Styles, Icon } from "mx-react-components";
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
-
+import axios from "axios";
 
 
 
@@ -11,6 +11,7 @@ class Data extends Component {
 
   constructor(props) {
     super(props);
+    
     this.state = {
       rangeValOne: 3,
       rangeValTwo: 3,
@@ -56,7 +57,8 @@ class Data extends Component {
       arrowSix: 'message-icon',
       checkSix: 'check-icon-one',
       arrowSeven: 'message-icon',
-      checkSeven: 'check-icon-one'
+      checkSeven: 'check-icon-one',
+     
      
 
   
@@ -68,47 +70,116 @@ class Data extends Component {
     this.updateRangeFive = this.updateRangeFive.bind(this);
     this.updateRangeSix = this.updateRangeSix.bind(this);
     this.updateRangeSeven = this.updateRangeSeven.bind(this);
+
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
+
+  handleSubmit(event) {
+    event.preventDefault()
+    var data = {
+        question1: this.state.rangeValOne,
+        comment1: this.state.commentOne,
+        question2: this.state.rangeValTwo,
+        comment2: this.state.commentTwo,
+        question3: this.state.rangeValThree,
+        comment3: this.state.commentThree,
+        question4: this.state.rangeValFour,
+        comment4: this.state.commentFour,
+        question5: this.state.rangeValFive,
+        comment5: this.state.commentFive,
+        question6: this.state.rangeValSix,
+        comment6: this.state.commentSix,
+        question7: this.state.rangeValSeven,
+        comment7: this.state.commentSeven,
+        comment8: this.state.commentEight,
+    }
+    console.log(data)
+    fetch("http://localhost:3000/api/surveys", {
+        method: 'POST',
+      
+        body: data
+    }).then(function(response) {
+        if (response.status >= 400) {
+          throw new Error("Bad response from server");
+        }
+        return response.json();
+    }).then(function(data) {
+        console.log(data)    
+        if(data == "success"){
+           console.log("success!")  
+        }
+    }).catch(function(err) {
+        console.log(err)
+    });
+
+    // axios.post('/api/surveys', {
+    //   question1: this.state.rangeValOne,
+    //   comment1: this.state.commentOne,
+    //   question2: this.state.rangeValTwo,
+    //   comment2: this.state.commentTwo,
+    //   question3: this.state.rangeValThree,
+    //   comment3: this.state.commentThree,
+    //   question4: this.state.rangeValFour,
+    //   comment4: this.state.commentFour,
+    //   question5: this.state.rangeValFive,
+    //   comment5: this.state.commentFive,
+    //   question6: this.state.rangeValSix,
+    //   comment6: this.state.commentSix,
+    //   question7: this.state.rangeValSeven,
+    //   comment7: this.state.commentSeven,
+    //   comment8: this.state.commentEight
+    // })
+    // .then(function (response) {
+    //   console.log(response);
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
+  
+}
+
+
+
   
   updateRangeOne(val) {
     this.setState({
-      rangeValOne: val
+      rangeValOne: Number(val)
     })
   } 
 
   updateRangeTwo(val) {
     this.setState({
-      rangeValTwo: val
+      rangeValTwo: Number(val)
     })
   } 
 
   updateRangeThree(val) {
     this.setState({
-      rangeValThree: val
+      rangeValThree: Number(val)
     })
   } 
 
   updateRangeFour(val) {
     this.setState({
-      rangeValFour: val
+      rangeValFour: Number(val)
     })
   } 
 
   updateRangeFive(val) {
     this.setState({
-      rangeValFive: val
+      rangeValFive: Number(val)
     })
   } 
 
   updateRangeSix(val) {
     this.setState({
-      rangeValSix: val
+      rangeValSix: Number(val)
     })
   } 
 
   updateRangeSeven(val) {
     this.setState({
-      rangeValSeven: val
+      rangeValSeven: Number(val)
     })
   } 
 
@@ -207,6 +278,8 @@ showQuestionEight = () => {
 
   }
 
+ 
+
   handleProgressUpdateOne = () => {
    
       this.setState({
@@ -217,10 +290,15 @@ showQuestionEight = () => {
       })
       console.log(this.state.rangeValOne);
       console.log(this.state.commentOne);
+
+     
+      // this.state.surveyData.push(this.state.rangeValOne);
+      // this.state.surveyData.push(this.state.commentOne);
+
       this.showQuestionTwo();
-      scroll.scrollTo(1350);
-   
-    
+      scroll.scrollTo(1350);  
+
+      // console.log(this.state.surveyData)
   };
 
 
@@ -234,8 +312,14 @@ showQuestionEight = () => {
       })
       console.log(this.state.rangeValTwo);
       console.log(this.state.commentTwo);
+
+      // this.state.surveyData.push(this.state.rangeValTwo);
+      // this.state.surveyData.push(this.state.commentTwo);
+
       this.showQuestionThree();
       scroll.scrollTo(2100);
+
+      // console.log(this.state.surveyData)
   };
 
   handleProgressUpdateThree = () => {
@@ -247,8 +331,14 @@ showQuestionEight = () => {
       })
       console.log(this.state.rangeValThree);
       console.log(this.state.commentThree);
+
+      // this.state.surveyData.push(this.state.rangeValThree);
+      // this.state.surveyData.push(this.state.commentThree);
+
       this.showQuestionFour();
       scroll.scrollTo(2825);
+
+      // console.log(this.state.surveyData)
   };
 
   handleProgressUpdateFour = () => {
@@ -260,8 +350,14 @@ showQuestionEight = () => {
       })
       console.log(this.state.rangeValFour);
       console.log(this.state.commentFour);
+
+      // this.state.surveyData.push(this.state.rangeValFour);
+      // this.state.surveyData.push(this.state.commentFour);
+
+
       this.showQuestionFive();
       scroll.scrollTo(3590);
+      // console.log(this.state.surveyData)
   };
 
   handleProgressUpdateFive = () => {
@@ -273,8 +369,14 @@ showQuestionEight = () => {
       })
       console.log(this.state.rangeValFive);
       console.log(this.state.commentFive);
+
+      // this.state.surveyData.push(this.state.rangeValFive);
+      // this.state.surveyData.push(this.state.commentFive);
+
+
       this.showQuestionSix();
       scroll.scrollTo(4320);
+      // console.log(this.state.surveyData)
   };
 
   handleProgressUpdateSix = () => {
@@ -286,8 +388,14 @@ showQuestionEight = () => {
       })
       console.log(this.state.rangeValSix);
       console.log(this.state.commentSix);
+
+      // this.state.surveyData.push(this.state.rangeValSix);
+      // this.state.surveyData.push(this.state.commentSix);
+
+
       this.showQuestionSeven();
       scroll.scrollTo(5045);
+      // console.log(this.state.surveyData)
   };
 
   handleProgressUpdateSeven = () => {
@@ -299,8 +407,14 @@ showQuestionEight = () => {
       })
       console.log(this.state.rangeValSeven);
       console.log(this.state.commentSeven);
+
+      // this.state.surveyData.push(this.state.rangeValSeven);
+      // this.state.surveyData.push(this.state.commentSeven);
+
+
       this.showQuestionEight();
       scroll.scrollTo(5785);
+      // console.log(this.state.surveyData)
   };
 
   handleProgressUpdateEight = () => {
@@ -311,6 +425,10 @@ showQuestionEight = () => {
 
       })
       console.log(this.state.commentEight);
+
+      // this.state.surveyData.push(this.state.commentEight);
+
+      // console.log(this.state.surveyData)
   };
 
 onInputChangeOne(commentOne) {
@@ -1129,7 +1247,7 @@ onInputChangeEight(commentEight) {
           {/*Question 8 End*/}
         
         <div className="center" id="submitBtn">
-        <Button id="submit-responses" aria-label='Submit Form' elementProps={{ 'data-my-attribute': 'my attribute data here' }} theme={{ Colors: { PRIMARY: '#333333' } }} type='secondary'>Submit Responses</Button>
+        <Button id="submit-responses" onClick={this.handleSubmit} aria-label='Submit Form' elementProps={{ 'data-my-attribute': 'my attribute data here' }} theme={{ Colors: { PRIMARY: '#333333' } }} type='secondary'>Submit Responses</Button>
          
         </div>
       </div>
