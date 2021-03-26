@@ -6,8 +6,8 @@ export default class Test extends Component {
     // console.log(props)
     this.state = {
       members: [], 
-      name: 'johny',
-      surname: 'tester',
+      name: 'jarded',
+      surname: 'taster',
       email: 'testing',
     
     }
@@ -15,7 +15,7 @@ export default class Test extends Component {
 }
 componentDidMount() {
   let self = this;
-  fetch('/users')
+  fetch('http://localhost:4007/users')
     .then(res => res.json())
     .then(members => self.setState({ members: members }));
 }
@@ -30,23 +30,23 @@ handleSubmit = () => {
 
 }
 console.log(data)
-// fetch("http://localhost:4007/users/new", {
-//   method: 'POST',
-//   headers: {'Content-Type': 'application/json'},
-//   body: JSON.stringify(data)
-// }).then(function(response) {
-//   if (response.status >= 400) {
-//     throw new Error("Bad response from server");
-//   }
-//   return response.json();
-// }).then(function(data) {
-//   console.log(data)    
-//   if(data == "success"){
-//      this.setState({msg: "Thanks for registering"});  
-//   }
-// }).catch(function(err) {
-//   console.log(err)
-// });
+fetch("http://localhost:4007/users/new", {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify(data)
+}).then(function(response) {
+  if (response.status >= 400) {
+    throw new Error("Bad response from server");
+  }
+  return response.json();
+}).then(function(data) {
+  console.log(data)    
+  if(data == "success"){
+     this.setState({msg: "Thanks for registering"});  
+  }
+}).catch(function(err) {
+  console.log(err)
+});
 }
 
 

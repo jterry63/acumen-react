@@ -4,13 +4,19 @@ const bodyParser = require("body-parser");
 const routes = require("./routes");
 const mysql = require('mysql');
 const path = require('path');
+var cors = require('cors');
+
 
 // Sets up the Express App
 // =============================================================
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 4007;
+app.use(cors());
 
-var surveyData = [];
+
+
+
+
 
 
 var connection = mysql.createConnection({
@@ -23,36 +29,22 @@ var connection = mysql.createConnection({
 
 });
 
+app.get("/users", function (req, res) {
+  var dbQuery = "SELECT * FROM vle2lt3dz5ogjgdk.members";
 
-app.use(express.static("client/build"));
-app.use(express.static("public"));
+  connection.query(dbQuery, function (err, result) {
+    if (err) throw err;
+    res.json(result);
+  });
+});
 
+app.post('/users/new', function(req, res, next) {
+  connection.query(`insert into vle2lt3dz5ogjgdk.members(name, surname, email) values('${req.body.name}', '${req.body.surname}', '${req.body.email}')`, function (error, results, fields) {
+      if(error) throw error;
+      res.send(JSON.stringify(results));
+  });
+});
 
-
-
-// app.get("/api/data", function (req, res) {
-//   var dbQuery = "SELECT * FROM vle2lt3dz5ogjgdk.surveys";
-
-//   connection.query(dbQuery, function (err, result) {
-//     if (err) throw err;
-//     res.json(result);
-    
-//   });
-// });
-
-
-
-// app.get('/', (req,res) =>{
-//   res.sendFile(path.join(__dirname+'/client/build/index.html'));
-// });
-
-
-
-
-// if (process.env.NODE_ENV === "production") {
-  // app.use(express.static("build"));
-  // app.use(express.static("public"));
-// }
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: true }));

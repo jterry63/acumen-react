@@ -20,7 +20,9 @@
     },
     "dependencies": {
         "axios": "^0.18.0",
+        "cors": "^2.8.5",
         "express": "^4.16.3",
+        "http": "^0.0.0",
         "if-env": "^1.0.4",
         "mysql": "^2.16.0",
         "router-express": "^1.5.2"
